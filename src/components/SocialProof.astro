@@ -1,0 +1,57 @@
+<section id="social-proof" class="flex-column align-center">
+  <h2>Welcome to [Restaurant Name]</h2>
+  <div id="social-proof-set--container" class="flex-column">
+    <div class="flex social-proof-set align-center justify-center">
+      <img src="/chef-hat-1.svg" alt="" />
+      <p>Attention to <span class="hand-written">detail</span></p>
+    </div>
+    <div class="flex social-proof-set align-center justify-center">
+      <img src="/chef-hat-2.svg" alt="" />
+      <p>Invest in our <span class="hand-written">staff</span></p>
+    </div>
+    <div class="flex social-proof-set align-center justify-center">
+      <img src="/chef-hat-3.svg" alt="" />
+      <p>Amazing <span class="hand-written">chefs</span></p>
+    </div>
+  </div>
+</section>
+
+<style>
+  #social-proof {
+    margin: var(--space-lg) 0;
+  }
+
+  #social-proof-set--container {
+    margin: var(--space-md) 0;
+    gap: var(--space-md);
+    width: 100%;
+  }
+
+  .social-proof-set {
+    gap: var(--space-md);
+  }
+
+  .social-proof-set img {
+    width: 5.8rem;
+    padding: 2.8rem;
+    border: 1px solid var(--secondary);
+    border-radius: 100rem;
+  }
+
+  @media only screen and (min-width:769px) {
+    .social-proof-set img {
+        width: 12rem;
+        padding: 6rem;
+    }
+}
+
+  @media only screen and (min-width: 1200px) {
+    .social-proof-set {
+    gap: var(--space-lg);
+  }
+    .social-proof-set img {
+        width: 20rem;
+        padding: 10rem;
+    }
+  }
+</style>

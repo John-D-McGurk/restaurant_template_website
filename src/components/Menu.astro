@@ -1,0 +1,57 @@
+---
+import Image from "astro/components/Image.astro";
+
+import MenuImage from "../assets/menu-image.png";
+---
+
+<section id="menu" class="flex align-center relative">
+  <Image
+    src={MenuImage}
+    alt=""
+    widths={[240, 600]}
+    sizes={`(max-width: 360px) 240px,600px`}
+    decoding="async"
+    loading="lazy"
+    class="absolute"
+  />
+
+  <div id="menu-list" class="flex-column align-center">
+    <p class="hand-written">Spring</p>
+    <p class="hand-written">Summer</p>
+    <p class="hand-written">Autumn</p>
+    <p class="hand-written">Winter</p>
+    <a href="" class="btn btn-secondary">Menu</a>
+  </div>
+</section>
+
+<style>
+  #menu {
+    width: 100%;
+    margin: var(--space-lg) 0;
+  }
+
+  img {
+    max-width: 120%;
+    max-height: 100%;
+    height: auto;
+    width: auto;
+    left: 0;
+    transform: translateX(-50%);
+  }
+
+  #menu-list {
+    margin-left: 60%;
+  }
+
+  @media only screen and (min-width: 769px) {
+    img.absolute {
+      position: relative;
+      transform: none;
+      max-width: 60%;
+    }
+
+    #menu-list {
+      margin-left: var(--space-lg);
+    }
+  }
+</style>

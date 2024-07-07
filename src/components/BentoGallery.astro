@@ -1,0 +1,107 @@
+---
+import Image from "astro/components/Image.astro";
+
+import Image1 from "../assets/bento-1.png";
+import Image2 from "../assets/bento-2.png";
+import Image3 from "../assets/bento-3.png";
+import Image4 from "../assets/bento-4.png";
+---
+
+<section id="gallery" class="flex-column relative">
+  <img
+    class="absolute bento-circle"
+    src="/bento-circle-secondary.svg"
+    alt=""
+    loading="lazy"
+  />
+  <img
+    class="absolute bento-circle"
+    src="/bento-circle-white.svg"
+    alt=""
+    loading="lazy"
+  />
+
+  <Image
+    src={Image1}
+    alt=" "
+    widths={[360, 720, 1200]}
+    sizes={`(max-width: 360px) 360px, (max-width: 720px) 720px, 1200px`}
+    decoding="async"
+    loading="lazy"
+    class="full-width"
+  />
+  <div class="flex">
+    <div class="flex-column fifty-percent">
+      <Image
+        src={Image2}
+        alt=""
+        widths={[180, 360, 600]}
+        sizes={`(max-width: 360px) 180px, (max-width: 720px) 360px, 600px`}
+        decoding="async"
+        loading="lazy"
+        class="full-width"
+      />
+      <Image
+        src={Image3}
+        alt=""
+        widths={[180, 360, 600]}
+        sizes={`(max-width: 360px) 180px, (max-width: 720px) 360px, 600px`}
+        decoding="async"
+        loading="lazy"
+        class="full-width"
+      />
+    </div>
+    <Image
+      class="fifty-percent"
+      src={Image4}
+      alt=""
+      widths={[180, 360, 600]}
+      sizes={`(max-width: 360px) 180px, (max-width: 720px) 360px, 600px`}
+      decoding="async"
+      loading="lazy"
+    />
+  </div>
+</section>
+
+<style>
+  #gallery {
+    margin: var(--space-lg) 0;
+    padding: var(--space-lg) 0;
+  }
+
+  .bento-circle {
+    z-index: 0;
+    width: 100%;
+    z-index: -1;
+  }
+
+  .bento-circle:first-of-type {
+    top: 0;
+    left: 0;
+    transform: translateX(-65%);
+  }
+
+  .bento-circle:nth-of-type(2) {
+    right: 0;
+    bottom: 0;
+    transform: translateX(65%);
+  }
+
+  .flex,
+  .flex-column {
+    gap: var(--space-xs);
+  }
+
+  img {
+    height: auto;
+    object-fit: cover;
+  }
+
+  .full-width {
+    width: 100%;
+  }
+
+  .fifty-percent {
+    width: 50%;
+  }
+</style>

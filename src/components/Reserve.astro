@@ -1,0 +1,39 @@
+---
+import Image from "astro/components/Image.astro";
+
+import ReserveImage from "../assets/reserve.png";
+---
+
+<section id="booking" class="flex-column align-center">
+  <Image
+    src={ReserveImage}
+    alt="alt"
+    widths={[360, 720, 1200]}
+    sizes={`(max-width: 360px) 360px, (max-width: 720px) 720px, 1200px`}
+    decoding="async"
+    loading="lazy"  />
+  <p>Reserve a table now and experience excellency</p>
+  <a href="" class="btn btn-primary">Book a Table</a>
+</section>
+
+<style>
+  #booking {
+    margin: var(--space-lg) 0;
+  }
+
+  img {
+    max-width: 150%;
+    height: auto;
+  }
+
+  p {
+    margin-top: var(--space-md);
+    margin-bottom: var(--space-sm);
+  }
+
+  @media only screen and (min-width: 769px) {
+    img {
+      max-width: 100%;
+    }
+  }
+</style>

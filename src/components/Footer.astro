@@ -1,0 +1,64 @@
+---
+import ContactForm from "./ContactForm.astro";
+import SocialMediaLinks from "./SocialMediaLinks.astro";
+---
+
+<footer>
+  <div class="container">
+    <h2>Contact us</h2>
+    <p>and let us know how we can help</p>
+    <div id="outer-container" class="flex-column">
+      <ContactForm />
+      <div id="contact-info--container" class="flex justify-between">
+        <div id="contact-info" class="flex-column">
+          <a href="">contact@restaurant.co.uk</a>
+          <a href="">01729 000000</a>
+          <SocialMediaLinks />
+        </div>
+        <img src="/logo.svg" alt="" />
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    padding: var(--space-lg) 0;
+    background: var(--white);
+    color: var(--black);
+  }
+
+  a {
+    color: var(--black);
+  }
+
+  h2 {
+    font-size: var(--text-lg);
+  }
+
+  p,
+  h2 {
+    margin: 0;
+  }
+
+  #contact-info--container {
+    margin: var(--space-md) 0;
+  }
+
+  #contact-info {
+    gap: var(--space-xs);
+  }
+
+  @media only screen and (min-width: 500px) {
+    #outer-container {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: var(--space-lg);
+    }
+
+    #contact-info--container {
+      flex-direction: column-reverse;
+      gap: var(--space-md);
+margin: 0;    }
+  }
+</style>

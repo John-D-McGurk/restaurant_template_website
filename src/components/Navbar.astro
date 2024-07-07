@@ -1,0 +1,329 @@
+---
+import SocialMediaLinks from "./SocialMediaLinks.astro";
+---
+
+<nav id="navbar" class="flex align-center justify-between">
+  <img id="logo" src="logo.svg" alt="" />
+  <a id="cta" href="" class="btn btn-primary">Book a table</a>
+  <div id="hamburger-icon" class="flex-column align-center animation-off">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+  <div id="menu-inner">
+    <ul class="flex-column">
+      <li>
+        <a href="">Home</a>
+      </li>
+      <li>
+        <a href="">About us</a>
+      </li>
+      <li>
+        <a href="">Menu</a>
+      </li>
+      <li>
+        <a href="">Reserve</a>
+      </li>
+    </ul>
+    <div class="flex-column contact-info">
+      <a href="">contact@restaurant.co.uk</a>
+      <a href="">01729 000000</a>
+
+      <SocialMediaLinks />
+    </div>
+  </div>
+</nav>
+
+<style>
+  :root {
+    --nav-height: 6rem;
+
+    --hamburger-width: 3rem;
+    --half-hamburger-height: calc(var(--hamburger-height) / 2 + 0.15rem);
+    --negative-half-hamburger-height: calc(-1 * var(--half-hamburger-height));
+    --hamburger-height: 2rem;
+    --hamburger-slice-height: 0.2rem;
+    --hamburger-slice-gap: calc(
+      (var(--hamburger-height) - var(--hamburger-slice-height) * 3) / 2
+    );
+  }
+  #navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--nav-height);
+    padding-left: var(--space-sm);
+    z-index: 10000;
+    background-color: transparent;
+    transition: background-color 0.6s ease;
+  }
+
+  #navbar.scrolled {
+    background-color: var(--white);
+  }
+
+  #logo {
+    height: 3.6rem;
+    filter: brightness(0) saturate(100%) invert(90%) sepia(25%) saturate(172%)
+      hue-rotate(337deg) brightness(105%) contrast(87%);
+  }
+
+  .scrolled #logo {
+    filter: brightness(0) saturate(100%) invert(2%) sepia(41%) saturate(439%)
+      hue-rotate(314deg) brightness(96%) contrast(78%);
+  }
+
+  nav.scrolled {
+    background-color: var(--white);
+  }
+
+  #menu-inner {
+    background-color: var(--primary);
+    position: fixed;
+    gap: var(--space-md);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 8rem var(--space-lg) var(--space-lg) var(--space-lg);
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+
+  .active #menu-inner {
+    opacity: 1;
+  }
+
+  nav,
+  ul,
+  .contact-info {
+    gap: var(--space-sm);
+  }
+
+  a {
+    color: var(--white);
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+    border-bottom: 1px solid;
+    padding-bottom: var(--space-sm);
+    margin: 0;
+  }
+
+  ul a {
+    font-size: var(--text-lg);
+    font-weight: 200;
+  }
+
+  .contact-info {
+    margin-top: var(--space-sm);
+  }
+
+  .contact-info a {
+    font-size: var(--text-md);
+  }
+
+  #cta {
+    margin-right: 8rem;
+  }
+
+  #hamburger-icon {
+    gap: var(--hamburger-slice-gap);
+    position: absolute;
+    padding: 4rem 4rem 2.6rem 2rem;
+    background-color: var(--primary);
+    right: -3rem;
+    top: -2rem;
+    border-radius: 50%;
+    z-index: 100001;
+    cursor: pointer;
+  }
+
+  #hamburger-icon .line {
+    background-color: var(--white);
+    height: var(--hamburger-slice-height);
+    border-radius: 3rem;
+  }
+
+  .line:first-of-type {
+    width: var(--hamburger-width);
+    animation: line-1-rev 0.6s ease;
+  }
+
+  .line:nth-of-type(2) {
+    width: calc(var(--hamburger-width) / 1.5);
+    animation: line-2-rev 0.6s ease;
+  }
+
+  .line:nth-of-type(3) {
+    width: calc(var(--hamburger-width) / 3);
+    animation: line-3-rev 0.6s ease;
+  }
+
+  .active .line:first-of-type {
+    transform: translate(0, var(--hamburger-slice-gap)) rotate(45deg);
+    animation: line-1 0.6s ease;
+  }
+
+  .active .line:nth-of-type(2) {
+    transform: scale(0);
+    animation: line-2 0.6s ease;
+  }
+
+  .active .line:nth-of-type(3) {
+    transform: translate(0, var(--half-hamburger-height)) rotate(45deg);
+    animation: line-3 0.6s ease;
+    transform: translate(0, var(--negative-half-hamburger-height))
+      rotate(-45deg) scaleX(300%);
+    border-radius: 0rem;
+  }
+
+  .animation-off,
+  .animation-off * {
+    -webkit-animation: none;
+    animation: none;
+  }
+
+  @keyframes line-1 {
+    from {
+      transform: translate(0, 0);
+    }
+
+    to {
+      transform: translate(0, var(--hamburger-slice-gap)) rotate(45deg);
+    }
+  }
+  @keyframes line-2 {
+    from {
+      transform: scale(1);
+    }
+
+    to {
+      transform: scale(0);
+    }
+  }
+
+  @keyframes line-3 {
+    from {
+      transform: translate(0, 0);
+    }
+
+    to {
+      transform: translate(0, var(--negative-half-hamburger-height))
+        rotate(-45deg) scaleX(300%);
+    }
+  }
+
+  @keyframes line-1-rev {
+    from {
+      transform: translate(0, var(--hamburger-slice-gap)) rotate(45deg);
+    }
+
+    to {
+      transform: translate(0, 0px);
+    }
+  }
+
+  @keyframes line-2-rev {
+    from {
+      transform: scale(0);
+    }
+
+    to {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes line-3-rev {
+    from {
+      transform: translate(0, var(--negative-half-hamburger-height))
+        rotate(-45deg) scaleX(300%);
+    }
+
+    to {
+      transform: translate(0, 0px);
+    }
+  }
+
+  @media only screen and (min-width: 769px) {
+    :root {
+      --nav-height: 16rem;
+
+      --hamburger-height: 3.5rem;
+      --hamburger-width: 5rem;
+      --hamburger-slice-height: 0.4rem;
+    }
+
+    #navbar {
+      align-items: start;
+      padding: 1rem var(--space-sm);
+      box-sizing: border-box;
+      transition:
+        height 0.6s ease,
+        background-color 0.6s ease;
+    }
+
+    #navbar.scrolled {
+      height: 8rem;
+
+    }
+
+    #logo {
+      height: 12rem;
+      transform-origin: top left;
+      transition: transform 0.6s ease, filter 0.6s ease;
+    }
+
+    .scrolled #logo {
+      transform: scale(0.5);
+    }
+
+    #hamburger-icon {
+      padding: 6rem 6rem 4rem 4.2rem;
+      top: -4rem;
+      right: -4rem;
+    }
+
+    #menu-inner {
+      left: unset;
+    }
+
+    #cta {
+      margin-right: 16rem;
+    }
+  }
+</style>
+
+<script>
+  function scrollEffectNav() {
+    const navbar = document.querySelector("#navbar");
+    if (window.scrollY > 0) {
+      navbar.classList.add("scrolled");
+    } else {
+      navbar.classList.remove("scrolled");
+    }
+  }
+
+  function openNavMenu() {
+    const hamburgerButton = document.querySelector("#hamburger-icon"),
+      navbar = document.querySelector("#navbar");
+
+    hamburgerButton.addEventListener("click", () => {
+      hamburgerButton.classList.remove("animation-off");
+
+      navbar.classList.toggle("active");
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    scrollEffectNav();
+    openNavMenu();
+  });
+
+  document.addEventListener("scroll", () => {
+    scrollEffectNav();
+  });
+</script>

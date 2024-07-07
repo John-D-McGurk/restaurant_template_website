@@ -1,0 +1,53 @@
+<section id="testimonials" class="flex-column align-center">
+  <img id="hat" src="/chef-hat-4.svg" alt="" />
+  <div id="text-container" class="relative">
+    <p>Cozy, delicious. Just fantastic</p>
+    <img id="open-quotes" class="quotes absolute" src="/open-quotes.svg">
+    <img id="close-quotes" class="quotes absolute" src="/close-quotes.svg">
+  </div>
+</section>
+
+<style>
+  #testimonials {
+    margin: var(--space-lg) 0;
+    padding-top: var(--space-lg);
+    font-weight: 100;
+  }
+
+  #text-container {
+    padding: var(--space-lg);
+  }
+
+  #hat {
+    width: min(50%, 20rem);
+    padding-bottom: var(--space-lg);
+  }
+
+  .quotes {
+    height: 4rem;
+  }
+
+  #open-quotes {
+    top: 0;
+    left: calc(-1 * var(--space-lg));
+  }
+
+  #close-quotes {
+    bottom: 0;
+    right: calc(-1 * var(--space-lg));
+  }
+
+  @media only screen and (min-width: 769px) {
+    #hat {
+        width: 30rem;
+        padding-bottom: var(--space-md);
+    }
+
+    #text-container {
+        padding: var(--space-lg) var(--space-md);
+    }
+    .quotes {
+        height: 6rem;
+    }
+  }
+</style>

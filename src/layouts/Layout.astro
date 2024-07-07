@@ -1,51 +1,183 @@
 ---
-interface Props {
-	title: string;
-}
-
-const { title } = Astro.props;
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quality Food Experiences | Your Restaurant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Oranienbaum&family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.onload=null;this.removeAttribute('media');"
+      fetchpriority="high"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Oranienbaum&family=Outfit:wght@100..900&display=swap"
+      />
+    </noscript>
+  </head>
+  <body>
+    <Navbar />
+    <slot name="body" />
+    <Footer />
+  </body>
 </html>
+
 <style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
+  :root {
+    font-size: 62.5%;
+
+    --primary: #a34f2b;
+    --secondary: #3d4639;
+    --white: #eeeadc;
+    --black: #232020;
+
+    --text-lg: 2.4rem;
+    --text-md: 1.6rem;
+    --text-sm: 1.2rem;
+
+    --space-lg: 4rem;
+    --space-md: 3.2rem;
+    --space-sm: 1.6rem;
+    --space-xs: 0.8rem;
+  }
+
+  html,
+  body {
+    margin: 0;
+    overflow-x: hidden;
+    max-width: 100%;
+    font-family: "Outfit";
+  }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+  }
+
+  h2 {
+    font-weight: 500;
+  }
+
+  h1 {
+    font-size: var(--text-lg);
+  }
+
+  h2 {
+    font-size: var(--text-md);
+  }
+
+  p,
+  a,
+  label {
+    font-size: var(--text-sm);
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+  }
+
+  .relative {
+    position: relative;
+  }
+
+  .absolute {
+    position: absolute;
+  }
+
+  .sticky {
+    position: sticky;
+  }
+
+  .flex {
+    display: flex;
+  }
+
+  .flex-column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .align-center {
+    display: flex;
+    align-items: center;
+  }
+
+  .align-end {
+    align-items: flex-end;
+  }
+
+  .justify-center {
+    display: flex;
+    justify-content: center;
+  }
+
+  .justify-end {
+    display: flex;
+    justify-content: end;
+  }
+
+  .justify-between {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .serif {
+    font-family: "Oranienbaum", Georgia, "Times New Roman", Times, serif;
+  }
+
+  .hand-written {
+    font-family: "Homemade Apple";
+  }
+
+  .btn {
+    padding: 0.6rem 2.4rem;
+    border-radius: 100rem;
+    color: var(--white);
+    font-weight: 300;
+  }
+
+  .btn-primary {
+    background: var(--primary);
+  }
+
+  .btn-secondary {
+    background: var(--secondary);
+  }
+
+  @media only screen and (min-width: 769px) {
+    :root {
+      --text-lg: 5rem;
+      --text-md: 3.2rem;
+      --text-sm: 2.4rem;
+
+      --space-lg: 9.2rem;
+      --space-md: 8rem;
+      --space-sm: 3.2rem;
+      --space-xs: 1.6rem;
+    }
+
+    .btn {
+      padding: 1.6rem 5.4rem;
+      border-radius: 100rem;
+      color: var(--white);
+    }
+  }
 </style>
